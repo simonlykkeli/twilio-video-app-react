@@ -26,14 +26,11 @@ blocks:
     task:
       secrets:
         - name: digitalocean-kubernetes
-      env_vars:
-        - name: KUBECONFIG
-          value: ' /home/semaphore/.kube/lykkeli-digitalocean-k8s-kubeconfig.yaml'
+      env_vars: []
       jobs:
         - name: 'Job #1'
           commands:
-            - cat $KUBECONFIG
-            - kubectl get nodes
+            - kubectl --kubeconfig=/home/semaphore/.kube/lykkeli-digitalocean-k8s-kubeconfig.yaml get nodes
 promotions:
   - name: Dockerize
     pipeline_file: docker-build-and-push.yml

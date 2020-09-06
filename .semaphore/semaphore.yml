@@ -28,10 +28,11 @@ blocks:
         - name: digitalocean-kubernetes
       env_vars:
         - name: KUBECONFIG
-          value: lykkeli-digitalocean-k8s-kubeconfig.yaml
+          value: ' /home/semaphore/.kube/lykkeli-digitalocean-k8s-kubeconfig.yaml'
       jobs:
         - name: 'Job #1'
           commands:
+            - cat $KUBECONFIG
             - kubectl get nodes
 promotions:
   - name: Dockerize

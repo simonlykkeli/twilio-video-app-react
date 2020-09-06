@@ -17,3 +17,6 @@ blocks:
             - 'docker push "${DOCKERHUB_USERNAME}"/lykkeliapp:$SEMAPHORE_WORKFLOW_ID'
       secrets:
         - name: dockerhub
+promotions:
+  - name: Deploy to Production
+    pipeline_file: deploy-to-digital-ocean.yml

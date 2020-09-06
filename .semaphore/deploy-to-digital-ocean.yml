@@ -1,0 +1,20 @@
+version: v1.0
+name: Deploy to Digital Ocean
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            - checkout
+            - kubectl get nodes
+            - kubectl get pods
+            - envsubst < deployment.yml.template | tee deployment.yml
+            - kubectl apply -f deployment.yml
+      secrets:
+        - name: digitalocean-kubernetes
+        - name: twilio

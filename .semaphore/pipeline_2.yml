@@ -1,0 +1,19 @@
+version: v1.0
+name: Docker Build and Push
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Docker Build and Push
+    task:
+      jobs:
+        - name: Docker Build and Push
+          commands:
+            - 'echo "${DOCKERHUB_PASSWORD}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin'
+            - checkout
+            - 'docker build -t "${DOCKERHUB_USERNAME}"/lykkeliapp:$SEMAPHORE_WORKFLOW_ID .'
+            - docker images
+            - 'docker push "${DOCKERHUB_USERNAME}"/lykkeliapp:$SEMAPHORE_WORKFLOW_ID'
+      secrets:
+        - name: dockerhub

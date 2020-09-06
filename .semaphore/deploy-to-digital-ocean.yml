@@ -11,10 +11,10 @@ blocks:
         - name: Deploy
           commands:
             - checkout
-            - kubectl get nodes
-            - kubectl get pods
+            - kubectl --kubeconfig=/home/semaphore/.kube/lykkeli-digitalocean-k8s-kubeconfig.yaml get nodes
+            - kubectl --kubeconfig=/home/semaphore/.kube/lykkeli-digitalocean-k8s-kubeconfig.yaml get pods
             - envsubst < deployment.yml.template | tee deployment.yml
-            - kubectl apply -f deployment.yml
+            - kubectl --kubeconfig=/home/semaphore/.kube/lykkeli-digitalocean-k8s-kubeconfig.yaml apply -f deployment.yml
       secrets:
         - name: digitalocean-kubernetes
         - name: twilio

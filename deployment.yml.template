@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: lykkeliapp
-          image: ${DOCKER_USERNAME}/lykkeliapp:${SEMAPHORE_WORKFLOW_ID}
+          image: ${DOCKERHUB_USERNAME}/lykkeliapp:${SEMAPHORE_WORKFLOW_ID}
           env:
             - name: HTTPS
               value: "true"

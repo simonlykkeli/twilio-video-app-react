@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     fab: {
       margin: theme.spacing(1),
+      color: "#F22F46",
     },
   })
 );
@@ -21,7 +22,7 @@ export default function EndCallButton() {
 
   return (
     <Tooltip title={'End Call'} onClick={() => room.disconnect()} placement="top" PopperProps={{ disablePortal: true }}>
-      <Fab className={classes.fab} color="primary">
+      <Fab className={classes.fab}>
         <CallEnd />
       </Fab>
     </Tooltip>

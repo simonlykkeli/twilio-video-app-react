@@ -15,7 +15,7 @@ function Ident () {
       opacity: 0.5,
       width: "20%"
     }
-    return <img style={style} src={"https://static1.squarespace.com/static/5d53ea7d42c648000193ca0f/t/5dbddf576b4e151dedc2fc62/1599053854911/?format=1500w"}/>
+    return <img alt="Lykkeli Logo" style={style} src={"https://static1.squarespace.com/static/5d53ea7d42c648000193ca0f/t/5dbddf576b4e151dedc2fc62/1599053854911/?format=1500w"}/>
 }
 
 export default function MainParticipant() {

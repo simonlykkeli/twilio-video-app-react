@@ -18,3 +18,4 @@ blocks:
       secrets:
         - name: digitalocean-kubernetes
         - name: twilio
+        - name: dockerhub

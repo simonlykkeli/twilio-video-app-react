@@ -16,8 +16,6 @@ spec:
         - name: lykkeliapp
           image: ${DOCKERHUB_USERNAME}/lykkeliapp:${SEMAPHORE_WORKFLOW_ID}
           env:
-            - name: HTTPS
-              value: "true"
             - name: TWILIO_ACCOUNT_SID
               value: "${TWILIO_ACCOUNT_SID}"
             - name: TWILIO_API_KEY_SID
